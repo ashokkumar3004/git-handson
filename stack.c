@@ -1,4 +1,46 @@
+void push(struct Stack *s, int value)
+{
+    if (s->top == MAX - 1)
+    {
+        printf("Stack Overflow!\n");
+        return;
+    }
 
+    s->top++;
+    s->arr[s->top] = value;
+
+    printf("%d pushed into the stack.\n", value);
+}
+
+void pop(struct Stack *s)
+{
+    if (s->top == -1)
+    {
+        printf("Stack Underflow!\n");
+        return;
+    }
+
+    printf("Popped element: %d\n", s->arr[s->top]);
+    s->top--;
+}
+
+void display(struct Stack *s)
+{
+    int i;
+
+    if (s->top == -1)
+    {
+        printf("Stack is empty!\n");
+        return;
+    }
+
+    printf("Stack elements are:\n");
+
+    for (i = s->top; i >= 0; i--)
+    {
+        printf("%d\n", s->arr[i]);
+    }
+}
 int main()
 {
     struct Stack s;
